@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Entornos virtuales
+venv/
+.env/
+.envrc
+
+# Archivos de datos grandes o temporales
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.db
+*.sqlite3
+*.xls
+*.xlsx
+*.rar
+*.zip
+*.tar.gz
+*.log
+
+# Otros
+.DS_Store
+Thumbs.db
