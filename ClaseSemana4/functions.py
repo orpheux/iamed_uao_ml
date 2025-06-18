@@ -1,4 +1,4 @@
-from model import model
+from ClaseSemana4.model import model
 from pycaret.classification import predict_model
 import pandas as pd
 

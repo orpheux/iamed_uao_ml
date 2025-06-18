@@ -84,7 +84,8 @@ ipython_config.py
 .python-version
 
 # pipenv
-#Pipfile.lock
+Pipfile
+Pipfile.lock
 
 # UV
 #uv.lock
