@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pycaret = "*"
+pyinstaller = "*"
+pandas = "*"
+numpy = "*"
+polars = "*"
+openpyxl = "*"
+fastexcel = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.11"
