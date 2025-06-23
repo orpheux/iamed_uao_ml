@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1750216428.6969 "d:/Projects/clase_ia/AA_CLASE4/doc/article.tex" "article.pdf" "article" 1750216429.59626 0
-  "C:/Users/ORPHEUX/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1750216271 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1750650366.85654 "d:/Projects/clase_ia/AA_CLASE4/doc/article.tex" "article.pdf" "article" 1750650367.77692 0
+  "C:/Users/ORPHEUX/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1750551295 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/ORPHEUX/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1750215055 24225990 d8aece713b67ce1b799cfbe0a6b624c0 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136765053 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -33,10 +33,8 @@
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy9.tfm" 1136765053 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
-  "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
-  "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
-  "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb" 1136846148 45758 19968a0990191524e34e1994d4a31cb6 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136871348 44729 fea0975e20ec51c992338362f05f1146 ""
@@ -75,14 +73,12 @@
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1665067579 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/ieeetran/IEEEtran.cls" 1440627644 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1704400941 30006 57b07afb710ee2f649c65cfbafda39c1 ""
-  "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/omsptm.fd" 1585253778 595 95c2c0baea9c719a4be29a3d4122498b ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1pcr.fd" 1585253778 1025 1ed784d7bfe47179f3550d2303b073f8 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/ORPHEUX/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "article.aux" 1750216429 2452 c8e39d16e8d459b60f90641d412e1eab "pdflatex"
-  "article.tex" 1750216371 15606 1d6773a9385947582740126988b434c1 ""
-  "d:/Projects/clase_ia/AA_CLASE4/doc/article.tex" 1750216371 15606 1d6773a9385947582740126988b434c1 ""
-  "fig1.png" 1750216207 13815 016052f2e09fbe31a21f6dc821b31ed9 ""
+  "article.aux" 1750650367 5172 334e7d678e7575b9ee70fcc0b9467201 "pdflatex"
+  "article.tex" 1750650366 32503 97dc1cccf3b51460cb58613dd89aaecf ""
+  "d:/Projects/clase_ia/AA_CLASE4/doc/article.tex" 1750650366 32503 97dc1cccf3b51460cb58613dd89aaecf ""
   (generated)
   "article.aux"
   "article.log"

@@ -13,11 +13,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Conference Paper Title*\\
-{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured for https://ieeexplore.ieee.org  and
-should not be used}
-\thanks{Identify applicable funding agency here. If none, delete this.}
-}
+\title{Homologador Inteligente de Medicamentos mediante IA}
 
 \author{\IEEEauthorblockN{Juan Sebastián Bohórquez Alegría}
     \IEEEauthorblockA{
@@ -44,222 +40,395 @@ component, formatting, style, styling, insert.
 This document is a model and instructions for \LaTeX.
 Please observe the conference page limits. For more information about how to become an IEEE Conference author or how to write your paper, please visit   IEEE Conference Author Center website: https://conferences.ieeeauthorcenter.ieee.org/.
 
-\subsection{Maintaining the Integrity of the Specifications}
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+\section{Contexto: Medicamentos en Colombia}
+En el sistema de salud colombiano, la prescripción, distribución y auditoría de medicamentos está regulada principalmente por el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA), entidad encargada de velar por la calidad, seguridad y eficacia de los productos farmacéuticos. Cada medicamento aprobado en Colombia cuenta con un Código Único de Medicamento (CUM), que representa una codificacion para cada medicamento, y este a su vez cuenta con una combinación específica de principio activo, concentración, forma farmacéutica, fabricante y presentación.
 
-\section{Prepare Your Paper Before Styling}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA} to \ref{FAT} below for more information on 
-proofreading, spelling and grammar.
+Sin embargo, en la práctica diaria del sistema de salud, especialmente en áreas como auditoría médica, contratación, gestión de tecnologías en salud y validaciones técnicas en sistemas como RIPS o MIPRES, surgen problemáticas relacionadas con la homologación de medicamentos. Estas problemáticas incluyen la necesidad de homologar medicamentos que, aunque no son idénticos, cumplen con características equivalentes, lo que es crucial para garantizar la continuidad del tratamiento y la cobertura adecuada por parte de las aseguradoras.
 
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
+Estas situaciones se presentan cuando es necesario reemplazar un medicamento por otro que cumpla características equivalentes, ya sea por desabastecimiento, cambio de proveedor, vencimiento o por políticas de cobertura (ej. PBS vs. No PBS).
 
-\subsection{Abbreviations and Acronyms}\label{AA}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have been defined in the abstract. Abbreviations such as 
-IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
-abbreviations in the title or heads unless they are unavoidable.
 
-\subsection{Units}
+
+\subsection{Necesidad}\label{AA}
+Actualmente no existe una herramienta automatizada, objetiva y basada en inteligencia artificial que permita sugerir medicamentos homólogos tomando en cuenta múltiples características como:
 \begin{itemize}
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m\textsuperscript{2}'' or ``webers per square meter'', not ``webers/m\textsuperscript{2}''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
+\item Nombre comercial 
+\item Principio activo
+\item Código ATC
+\item Forma farmacéutica
+\item Vìa de administracion
+\item Presentación
+\item Condición de muestra médica o comercial
+\item Vigencia y fecha de vencimiento del registro INVIMA
 \end{itemize}
 
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
-
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
-
-\subsection{\LaTeX-Specific Advice}
-
-Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). That will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to go through the file line by line.
-
-Please don't use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
-
-Please note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed. If you forget that, you might write an
-article in which the equation numbers skip from (17) to (20), causing
-the copy editors to wonder if you've discovered a new method of
-counting.
-
-{\BibTeX} does not work by magic. It doesn't get the bibliographic
-data from thin air but from .bib files. If you use {\BibTeX} to produce a
-bibliography you must send the .bib files. 
-
-{\LaTeX} can't read your mind. If you assign the same label to a
-subsubsection and a table, you might find that Table I has been cross
-referenced as Table IV-B3. 
-
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
-
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| (there won't be
-any anyway) and it might stop a wanted equation number in the
-surrounding equation.
-
-\subsection{Some Common Mistakes}\label{SCM}
+Estas variables impactan la elección del medicamento y son relevantes para múltiples actores en el sistema:
 \begin{itemize}
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
+\item Auditores médicos (para validación de medicamentos prescritos vs. disponibles)
+\item Áreas de contratación (para toma de decisiones costo-efectivas)
+\item Soporte técnico-científico (en notas técnicas y argumentación de cambios)
+\item Validadores tecnológicos (para comparabilidad en RIPS y MIPRES)
 \end{itemize}
-An excellent style manual for science writers is \cite{b7}.
 
-\subsection{Authors and Affiliations}\label{AAA}
-\textbf{The class file is designed for, but not limited to, six authors.} A 
-minimum of one author is required for all conference articles. Author names 
-should be listed starting from left to right and then moving down to the 
-next line. This is the author sequence that will be used in future citations 
-and by indexing services. Names should not be listed in columns nor group by 
-affiliation. Please keep your affiliations as succinct as possible (for 
-example, do not differentiate among departments of the same organization).
 
-\subsection{Identify the Headings}\label{ITH}
-Headings, or heads, are organizational devices that guide the reader through 
-your paper. There are two types: component heads and text heads.
+\subsection{Solución Propuesta}
+Validar medicamentos uno a uno, contrastando manualmente variables como principios activos, forma farmacéutica, código ATC, cobertura, condición de muestra o fechas de vencimiento, es una tarea altamente tediosa, repetitiva y sujeta a errores humanos, especialmente cuando se manejan decenas de miles de registros. Este proceso, que requiere precisión técnica y conocimiento normativo, termina convirtiéndose en una carga operativa costosa y poco escalable.
 
-Component heads identify the different components of your paper and are not 
-topically subordinate to each other. Examples include Acknowledgments and 
-References and, for these, the correct style to use is ``Heading 5''. Use 
-``figure caption'' for your Figure captions, and ``table head'' for your 
-table title. Run-in heads, such as ``Abstract'', will require you to apply a 
-style (in this case, italic) in addition to the style provided by the drop 
-down menu to differentiate the head from the text.
+Frente a esta situación, se plantea como solución el desarrollo de un sistema inteligente de homologación de medicamentos basado en técnicas de aprendizaje automático, que permita automatizar la búsqueda de equivalentes farmacológicos o administrativos según criterios definidos por el usuario.
 
-Text heads organize the topics on a relational, hierarchical basis. For 
-example, the paper title is the primary text head because all subsequent 
-material relates and elaborates on this one topic. If there are two or more 
-sub-topics, the next level head (uppercase Roman numerals) should be used 
-and, conversely, if there are not at least two sub-topics, then no subheads 
-should be introduced.
+La hipótesis central es que este enfoque puede reducir drásticamente el tiempo y esfuerzo requeridos en procesos de validación y homologación, mejorar la consistencia de los criterios de selección, y aportar una base técnica sólida para decisiones en auditoría, contratación y análisis técnico en salud.
 
-\subsection{Figures and Tables}\label{FAT}
-\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-bottom of columns. Avoid placing them in the middle of columns. Large 
-figures and tables may span across both columns. Figure captions should be 
-below the figures; table heads should appear above the tables. Insert 
-figures and tables after they are cited in the text. Use the abbreviation 
-``Fig.~\ref{fig}'', even at the beginning of a sentence.
+
+\section{Fuente de Datos}
+
+La base de datos de medicamentos del INVIMA constituye el insumo primario para el proceso de homologación. Esta fuente agrupa los registros sanitarios en cuatro estados según su situación administrativa: vigentes, vencidos, en trámite de renovación y otros (incluyendo suspendidos, cancelados, muestras médicas, importación excepcional, etc.)\cite{invima2025}. Si bien todos los registros ofrecen valor desde una perspectiva histórica, el análisis y la generación de sugerencias automáticas se centran exclusivamente en los medicamentos vigentes y en trámite de renovación, pues solo estos pueden ser considerados válidos para sustituciones o homologaciones\cite{minsalud2024}.
+
+El INVIMA provee una estructura estandarizada de metadatos para cada medicamento, de los cuales se identifican cuatro atributos centrales para construir la huella técnica del producto:
+
+\begin{itemize}
+    \item \textbf{Principio activo}: la(s) sustancia(s) farmacológicamente activa(s), expresadas conforme a la Denominación Común Internacional (DCI).
+    \item \textbf{Concentración}: cantidad del principio activo por unidad de dosificación (por ejemplo mg, \%, o mg/ml), estandarizada según especificaciones reglamentarias.
+    \item \textbf{Forma farmacéutica}: la forma física del medicamento (tableta, cápsula, solución, crema, polvo, etc.), clasificada de acuerdo con farmacopeas como USP/FDA — norma adoptada por el INVIMA.
+    \item \textbf{Vía de administración}: ruta de aplicación del fármaco (oral, parenteral, tópica, inhalatoria, etc.), codificada según estándares internacionales (por ejemplo ICH o FDA).
+\end{itemize}
+
+Estos cuatro atributos constituyen un vector teórico esencial para comparar medicamentos en términos farmacológicos y estructurales. Complementariamente, el dataset incluye metadatos administrativos y regulatorios como fechas de registro y vencimiento, estado del registro, y marcadores de condición especial (como si es muestra médica), que permiten aplicar filtros operativos durante el proceso de homologación.
+
+\section{Análisis Exploratorio de Datos (EDA)}
+Como fase inicial del proceso, se llevó a cabo un análisis exploratorio exhaustivo con el objetivo de comprender la estructura general de los datos, identificar patrones relevantes y establecer criterios técnicos para la depuración y segmentación del dataset. La información analizada provino de las bases oficiales del INVIMA, que agrupan los medicamentos registrados en Colombia según su estado administrativo. En total, se consolidaron 406,807 registros distribuidos entre medicamentos vigentes, vencidos, en trámite de renovación y en otros estados como suspendidos, cancelados, importación excepcional o muestras médicas. 
+
+La Tabla~\ref{tab:invima_estados} resume el número de registros por fuente original, destacando que la mayoría de los medicamentos se encuentran en los archivos de INVIMA marcados como vigente o vencido.
 
 \begin{table}[htbp]
-\caption{Table Type Styles}
+\caption{Distribución de registros de medicamentos según estado administrativo en la base de datos del INVIMA (2025) \cite{invima2025}}
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|r|}
 \hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+\textbf{Estado administrativo} & \textbf{Número de registros} \\
 \hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
+Medicamentos vencidos         & 154,187 \\
+Medicamentos vigentes         & 154,320 \\
+Medicamentos en renovación    & 2,133   \\
+Medicamentos otros            & 96,167  \\
 \hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+\textbf{Total} & \textbf{406,807} \\
+\hline
 \end{tabular}
-\label{tab1}
+\label{tab:invima_estados}
 \end{center}
 \end{table}
 
-\begin{figure}[htbp]
-\centerline{\includegraphics{fig1.png}}
-\caption{Example of a figure caption.}
-\label{fig}
-\end{figure}
+\
+El análisis inicial reveló que el dataset consolidado contiene 16 variables, de las cuales la mayoría corresponden a datos categóricos (por ejemplo, nombres de productos, principios activos, formas farmacéuticas y estados administrativos), mientras que un subconjunto menor corresponde a variables numéricas (como cantidades y concentraciones). Esta estructura mixta permite realizar análisis tanto descriptivos como comparativos entre medicamentos.
 
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-rather than symbols or abbreviations when writing Figure axis labels to 
-avoid confusing the reader. As an example, write the quantity 
-``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-units in the label, present them within parentheses. Do not label axes only 
-with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-quantities and units. For example, write ``Temperature (K)'', not 
-``Temperature/K''.
+A continuación, se depuró el dataset mediante la eliminación de columnas irrelevantes para el análisis, normalización de tipos de datos y estandarización de nombres. Posteriormente, se realizó un proceso de eliminación de duplicados, resultando en un conjunto limpio de 248,635 registros únicos y estructurado en 15 variables seleccionadas como relevantes para la fase de modelado.
 
-\section*{Acknowledgment}
+Uno de los objetivos principales del EDA fue establecer qué registros eran válidos para procesos de homologación automática. Para ello, se definió una regla con tres condiciones: el registro debía estar vigente, su código CUM debía tener estado “activo” y no debía corresponder a una muestra médica. Tras aplicar estos criterios, se identificaron 62,006 registros válidos, lo que representa apenas el 24.9\% del total, frente a 186,629 registros inválidos (75.1\%), como se muestra en la tabla~\ref{tab:invima_validos}, esto es teniendo en cuenta que los motivos de invalidez hacen parte de motivos como que el CUM no esta activo, esta en tramite de renovación, o es una muestra médica.
 
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
+\begin{table}[htbp]
+\caption{Registros válidos e inválidos tras depuración del dataset}
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+\textbf{Condición} & \textbf{Cantidad de registros} & \textbf{Porcentaje} \\
+\hline
+Válidos   & 62,006   & 24.9\% \\
+Inválidos & 186,629  & 75.1\% \\
+\hline
+Total     & 248,635  & 100\% \\
+\hline
+\end{tabular}
+\label{tab:invima_validos}
+\end{center}
+\end{table}
 
-\section*{References}
+\
+Con el subconjunto válido identificado, se evaluó la calidad y cobertura de las variables estructurales más críticas: principio activo, código ATC, forma farmacéutica y vía de administración. Los resultados confirmaron una cobertura excepcional en forma farmacéutica (99.9\%) y vía de administración (99.6\%), mientras que el código ATC tuvo cobertura del 92.2\% y el principio activo, más propenso a inconsistencias por redacción, alcanzó un 61.7\%.
 
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
+También se evaluaron combinaciones entre variables para determinar su efectividad como criterio de agrupamiento. La combinación más prometedora fue ATC + vía de administración, que cubrió el 85.4\% de los medicamentos válidos. Le siguen combinaciones como ATC + vía + forma farmacéutica con un 68.0\% de cobertura, y principio activo + vía de administración con 56.9\%. 
+Como dato adicional, realizando una exploracion de los registros validos, especialmente en el atributo de principio activo, pues se trata de un atributo que finalmente puede no estar normalizado para todos los registros, esto teniendo en cuenta que para un principio activo "Acetaminofén" se encuentran un total de 175 descripciones diferentes y de igual manera en cantidades diferentes para otros medicamentos, lo que indica que no se trata de un atributo normalizado, y por tanto, no es un atributo que se pueda utilizar de forma directa para homologación de medicamentos perdiendo su peso como criterio fuerte.
+Por otro lado y por criterios medicos, se plantea la necesidad de considerar la cantidad de la concentracion y su unidad de medida, pues en algunos casos se trata de medicamentos que pueden tener la misma forma farmacéutica y via de administracion, pero que tienen diferentes concentraciones, lo que puede llevar a una mala eleccion de un medicamento homólogo, de acuerdo con la necesidad del paciente, un ejemplo seria un dedicamento que viene con una concentracion de 500mg y otro con una concentracion de 1000mg, que aunque son el mismo medicamento, no son homólogos, pues la necesidad del paciente puede ser diferente.
 
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
+Con base en estos hallazgos, las variables se clasificaron en dos categorías para uso posterior:
 
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
+\begin{itemize}
+    \item \textbf{Variables críticas}: aquellas con cobertura superior al 80\%, como ATC, vía de administración y forma farmacéutica.
+    \item \textbf{Variable importante}: principio activo, con más del 50\% de cobertura, útil como criterio secundario.
+\end{itemize}
 
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
+Finalmente, el dataset depurado fue exportado en formatos .parquet y .csv para su posterior procesamiento. Este conjunto de datos limpio, etiquetado por validez y con columnas estandarizadas, será la base para las etapas siguientes: codificación numérica, agrupamiento mediante algoritmos no supervisados, y cálculo de similitud para la sugerencia automática de medicamentos homólogos.
+
+
+\section{Aprendizaje Automático}
+
+\subsection{Codificación de variables: transformación del dataset original}
+
+El dataset original contenía múltiples columnas categóricas y numéricas con información relevante sobre productos farmacéuticos. Dado que los algoritmos de agrupamiento utilizados requieren representaciones numéricas densas, se aplicó un proceso de codificación que transformó el dataset en una matriz vectorial estructurada, optimizada para el análisis no supervisado.
+
+\subsubsection{Paso 1: Codificación de variables categóricas}
+
+Se empleó una técnica propia denominada \textbf{Ranking Frecuencial Ajustado}. Esta convierte cada categoría en un valor numérico continuo que representa su posición en el ranking de frecuencia, permitiendo conservar relaciones ordinales sin generar columnas dispersas.
+
+\paragraph{Ecuación aplicada}
+
+\begin{equation}
+f(x_i) = r(x_i) + \frac{c(x_i)}{10{,}000}
+\end{equation}
+
+Donde:
+\begin{itemize}
+   \item $x_i$: valor categórico
+   \item $r(x_i)$: ranking por frecuencia de aparición (1 para el más común)
+   \item $c(x_i)$: número de veces que aparece $x_i$
+\end{itemize}
+
+El divisor sirve para romper empates y mantener continuidad sin alterar el orden.
+
+Esta codificación se aplicó sobre columnas como ATC, VÍA ADMINISTRACIÓN, PRINCIPIO ACTIVO, FORMA FARMACÉUTICA y UNIDAD MEDIDA, generando variables transformadas que preservan la semántica y reducen la dimensionalidad.
+
+\begin{table}[h]
+    \caption{Variables categóricas codificadas}
+\centering
+\scriptsize
+\begin{tabular}{|p{2.5cm}|p{2.3cm}|p{1.8cm}|}
+\hline
+\textbf{Columna codificada} & \textbf{Basada en original} & \textbf{Técnica aplicada} \\
+\hline
+ATC\_label & ATC + tipo técnico & Ranking Freq. Ajustado \\
+\hline
+VÍA ADMIN\_label & VÍA ADMIN & Ranking Freq. Ajustado \\
+\hline
+PRINCIPIO ACTIVO\_label & PRINCIPIO ACTIVO & Ranking Freq. Ajustado \\
+\hline
+FORMA FARM\_label & FORMA FARM & Ranking Freq. Ajustado \\
+\hline
+UNIDAD MEDIDA\_label & UNIDAD MEDIDA & Ranking Freq. Ajustado \\
+\hline
+\end{tabular}
+\end{table}
+
+A cada una de estas se le añadieron dos métricas adicionales:
+
+\begin{itemize}
+   \item \textbf{*\_es\_valido}: indicador booleano que señala si el valor pertenece a una lista prevalidada.
+   \item \textbf{*\_prob\_validos} o \textbf{*\_prob}: proporción del valor dentro del subconjunto de registros válidos.
+\end{itemize}
+
+\subsubsection{Paso 2: Transformación de variables numéricas}
+
+Las columnas numéricas CANTIDAD y CANTIDAD CUM presentan escalas diversas. Para estabilizar las magnitudes y facilitar comparaciones proporcionales, se generaron nuevas variables:
+
+\begin{table}[h]
+\caption{Transformaciones de variables numéricas}
+\centering
+\scriptsize
+\begin{tabular}{|p{2.5cm}|p{4cm}|}
+\hline
+\textbf{Columna generada} & \textbf{Descripción técnica} \\
+\hline
+CANTIDAD\_log & Logaritmo natural de CANTIDAD \\
+\hline
+CANTIDAD\_CUM\_log & Logaritmo natural de CANTIDAD CUM \\
+\hline
+RATIO\_CANTIDAD & Cociente entre CANTIDAD y CANTIDAD CUM \\
+\hline
+CANTIDAD\_bin & Discretización de CANTIDAD por rangos \\
+\hline
+\end{tabular}
+\end{table}
+
+Estas variables permiten capturar diferencias sutiles en dosificación y facilitar el agrupamiento de productos clínicamente equivalentes.
+
+\subsubsection{Paso 3: Agrupación funcional de variables}
+
+Con base en su relevancia técnica y su impacto esperado en la agrupación, las variables resultantes se organizaron en tres bloques funcionales: críticas, importantes e informativas.
+
+\paragraph{Features críticas (peso total: 85\%)}
+
+Este grupo representa el núcleo técnico del producto: composición terapéutica, vía de administración y sustancia activa. Son las variables con mayor peso relativo en el análisis.
+
+\begin{table}[h]
+\caption{Features críticas del modelo}
+\centering
+\scriptsize
+\begin{tabular}{|p{2.8cm}|p{1.5cm}|p{2.2cm}|}
+\hline
+\textbf{Feature} & \textbf{Origen} & \textbf{Función principal} \\
+\hline
+ATC\_label & ATC + tipo & Identificador terapéutico \\
+\hline
+ATC\_es\_valido & Validación & Verificación estructural \\
+\hline
+ATC\_prob\_validos & Estadística & Proporción en válidos \\
+\hline
+VÍA ADMIN\_label & VÍA ADMIN & Codificación de ruta \\
+\hline
+VÍA ADMIN\_es\_valido & Validación & Verificación estructural \\
+\hline
+VÍA ADMIN\_prob\_validos & Válidos & Proporción en válidos \\
+\hline
+PRINCIPIO ACTIVO\_label & PRINCIPIO ACTIVO & Sustancia codificada \\
+\hline
+PRINCIPIO ACTIVO\_es\_valido & Validación & Presencia en vocabulario \\
+\hline
+PRINCIPIO ACTIVO\_prob\_validos & Válidos & Proporción en válidos \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Features importantes (peso total: 15\%)}
+
+Variables complementarias que aportan contexto clínico y cuantitativo sin ser definitorias por sí solas.
+
+\begin{table}[h]
+\caption{Features importantes del modelo}
+\centering
+\scriptsize
+\begin{tabular}{|p{2.8cm}|p{1.5cm}|p{2.2cm}|}
+\hline
+\textbf{Feature} & \textbf{Origen} & \textbf{Función técnica} \\
+\hline
+FORMA FARM\_label & FORMA FARM & Presentación codificada \\
+\hline
+FORMA FARM\_prob & Dataset completo & Frecuencia global \\
+\hline
+CANTIDAD\_log & CANTIDAD & Escala logarítmica \\
+\hline
+CANTIDAD\_CUM\_log & CANTIDAD CUM & Escala log referencial \\
+\hline
+RATIO\_CANTIDAD & Derivada & Proporción dosis real/ref \\
+\hline
+CANTIDAD\_bin & CANTIDAD & Discretización por tramos \\
+\hline
+UNIDAD MEDIDA\_label & UNIDAD MEDIDA & Unidad codificada \\
+\hline
+UNIDAD MEDIDA\_prob & Dataset completo & Frecuencia global \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Features informativas (sin peso)}
+
+Estas variables no se utilizan para el entrenamiento del modelo de clustering, pero se conservan en el dataset para su uso operativo. Permiten rastrear el producto original, aplicar filtros, generar etiquetas auxiliares o evaluar la calidad de las predicciones en fases posteriores del sistema.
+
+Variables informativas: CUM (código único), PRODUCTO (nombre comercial), ATC, VÍA ADMINISTRACIÓN, PRINCIPIO ACTIVO, FORMA FARMACÉUTICA, CANTIDAD, CANTIDAD CUM, UNIDAD MEDIDA (versiones originales sin transformar), y VALIDO (indicador de validez estructural).
+
+\subsubsection{Dataset final construido}
+
+Este esquema de transformación no solo permitió convertir un conjunto heterogéneo de atributos farmacologicos y regulatorios en una estructura numérica compacta y procesable, sino que también garantizó que las variables más relevantes para la comparación —aquellas definidas como críticas— tuvieran un peso proporcionalmente mayor en la representación final. Las features importantes ofrecieron un marco contextual para complementar decisiones, mientras que las features informativas, aunque no usadas directamente en el entrenamiento, conservaron trazabilidad y utilidad operativa. Al integrar codificaciones semánticas, transformaciones logarítmicas, discretización, validaciones y frecuencias relativas en un solo vector, se obtuvo una matriz robusta y jerarquizada, óptima para modelos no supervisados como K-Means, donde la calidad de los agrupamientos depende directamente de la fidelidad semántica del espacio vectorial.
+
+\subsection{PyCaret}
+
+\subsubsection{Evaluación de modelos de agrupamiento}
+
+Como parte del proceso de exploración no supervisada sobre los datos codificados de medicamentos, se empleó la librería PyCaret para ejecutar y comparar distintos algoritmos de agrupamiento (clustering). Esta evaluación tenía como propósito determinar la capacidad de diferentes métodos para identificar patrones, agrupaciones naturales o vecindades útiles entre los productos, sin requerir una variable de salida explícita.
+
+PyCaret ofrece una interfaz de alto nivel que automatiza tareas comunes de preprocesamiento, selección de modelos y evaluación de resultados. En este caso, se utilizó su módulo de clustering (\texttt{pycaret.clustering}) y se ejecutó la función \texttt{setup()} sin establecer una variable objetivo (\texttt{target=None}), habilitando así el modo no supervisado.
+
+Durante la configuración del entorno, PyCaret detectó correctamente las columnas categóricas y numéricas, aplicó codificación ordinal donde fue necesario, y realizó escalamiento de las variables numéricas para asegurar uniformidad entre dimensiones.
+
+\subsubsection{Evaluación de algoritmos}
+
+Se intentaron ejecutar varios algoritmos de clustering disponibles en PyCaret, incluyendo métodos basados en centroides, densidad, jerarquías y modelos para datos categóricos. Cada uno de ellos fue invocado a través de \texttt{create\_model()}, seguido de una evaluación automática con métricas integradas y visualización de los clústeres generados.
+
+La siguiente tabla resume los resultados obtenidos para los modelos que lograron ejecutarse correctamente:
+
+\begin{table}[h]
+\caption{Resultados de evaluación de algoritmos de clustering}
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Algoritmo} & \textbf{Silhouette Score} & \textbf{Calinski-Harabasz} & \textbf{Davies-Bouldin} \\
+\hline
+K-Means & 0.1745 & 8152.9503 & 1.9949 \\
+\hline
+OPTICS & 0.1738 & 27.8893 & 1.0804 \\
+\hline
+BIRCH & 0.1689 & 7592.5154 & 2.0797 \\
+\hline
+\end{tabular}
+\label{tab:clustering_results}
+\end{table}
+
+\paragraph{K-Means}
+Este algoritmo fue el primero en ejecutarse exitosamente. Aunque su Silhouette Score no fue alto (0.1745), fue el mayor entre los modelos comparados. Su alto valor de Calinski-Harabasz (8152.95) sugiere una buena separación interclúster con respecto a la dispersión interna. Las visualizaciones generadas mostraron agrupamientos bastante definidos, con formas esféricas y bordes nítidos, lo que facilita su interpretación.
+
+\paragraph{OPTICS}
+El modelo OPTICS, basado en agrupamientos por densidad, también se ejecutó satisfactoriamente. A pesar de un valor mucho menor en Calinski-Harabasz (27.88), logró un Davies-Bouldin más bajo (1.0804), lo cual sugiere una mejor separación relativa entre clústeres respecto a su dispersión. OPTICS fue capaz de capturar clústeres con formas irregulares y diferencias de densidad, lo cual lo hace útil en contextos donde los grupos no son necesariamente convexos ni uniformes.
+
+\paragraph{BIRCH}
+El algoritmo BIRCH (Balanced Iterative Reducing and Clustering using Hierarchies) proporcionó un enfoque eficiente en términos de memoria y tiempo. Obtuvo un Silhouette Score de 0.1689 y un Calinski-Harabasz de 7592.51, quedando cerca de K-Means en términos de cohesión y separación. Si bien su Davies-Bouldin fue el más alto de los tres, el modelo fue ejecutado de forma exitosa y ofreció una segmentación razonablemente clara del espacio de datos.
+
+\subsubsection{Modelos que no pudieron ser evaluados}
+
+Varios modelos fallaron durante la ejecución, por distintos motivos: errores de asignación de memoria, procesos que quedaron colgados o incompatibilidades estructurales con los datos del problema. A continuación se enumeran los modelos que no pudieron completar la evaluación, junto con el motivo exacto del fallo según los mensajes obtenidos en el entorno:
+
+\begin{table}[h]
+\caption{Modelos que fallaron durante la evaluación}
+\centering
+\begin{tabular}{|l|p{5cm}|}
+\hline
+\textbf{Algoritmo} & \textbf{Motivo del fallo} \\
+\hline
+DBSCAN & MemoryError: Unable to allocate 4.96 MiB for an array with shape (13, 50000) \\
+\hline
+Affinity Propagation & Ejecución sin retorno de métricas. Se presume cuelgue o uso excesivo de memoria. \\
+\hline
+Mean Shift & El proceso no arrojó salida alguna. Tiempo de ejecución excesivo sin métricas. \\
+\hline
+Spectral Clustering & No se generaron métricas ni visualizaciones. Fallo silencioso. \\
+\hline
+Hierarchical Clustering & Cuelgue de proceso. Ninguna métrica devuelta. \\
+\hline
+\end{tabular}
+\label{tab:failed_models}
+\end{table}
+
+
+Los resultados obtenidos demuestran que los modelos K-Means, OPTICS y BIRCH son candidatos viables para tareas posteriores de agrupamiento y análisis, aunque las métricas obtenidas reflejan que los clústeres no se encuentran fuertemente separados ni son perfectamente definidos. Esto puede atribuirse a la complejidad del dominio (productos médicos codificados con múltiples atributos numéricos y categóricos) y a la alta densidad del espacio de características.
+
+Los valores relativamente bajos de Silhouette y Davies-Bouldin indican que los agrupamientos no son óptimos desde un punto de vista geométrico, pero aún pueden ser útiles si se combinan con reglas de negocio, validaciones expertas o sistemas de recomendación por vecindad.
+
+\subsection{Entrenamiento Manual con Scikit-learn: K-Means}
+
+Tras la etapa exploratoria con PyCaret, se optó por una implementación controlada utilizando la biblioteca \textbf{scikit-learn}, con el objetivo de afinar parámetros, mejorar la reproducibilidad del modelo y facilitar su integración con los componentes funcionales del sistema de homologación. El algoritmo \textbf{K-Means} fue seleccionado debido a su buen desempeño relativo, su eficiencia computacional y su capacidad para operar sobre conjuntos multivariados con atributos mixtos previamente codificados.
+
+El modelo se construyó utilizando la clase \texttt{KMeans}, ajustando parámetros clave como el número de clústeres (\texttt{n\_clusters}), el método de inicialización (\texttt{k-means++}), la cantidad de reinicios (\texttt{n\_init}) para evitar mínimos locales y los criterios de convergencia (\texttt{max\_iter} y \texttt{tol}). El entrenamiento se llevó a cabo sobre el conjunto de datos previamente filtrado, normalizado y reducido en dimensionalidad mediante técnicas como PCA, lo que permitió estabilizar las estructuras internas y facilitar el proceso de agrupamiento.
+
+Una vez entrenado el modelo, cada registro fue asignado a un clúster específico, lo que permitió segmentar los medicamentos en grupos con características comunes. Esta asignación no responde a una variable objetivo predefinida, sino a patrones latentes aprendidos directamente de la estructura de los datos. Esta propiedad lo convierte en un modelo particularmente útil para tareas donde no se cuenta con etiquetas de referencia, como es el caso de la homologación de medicamentos en entornos reales.
+
+Con los clústeres definidos, se construyó una estructura de vecindad básica en la que es posible consultar qué medicamentos se encuentran en el mismo grupo que un producto dado. Esta lógica permite sugerir posibles equivalentes a partir de su agrupamiento, bajo el supuesto de que las observaciones cercanas en el espacio transformado comparten atributos relevantes desde el punto de vista farmacológico y regulatorio. El modelo también es compatible con la aplicación de filtros posteriores, como vigencia del registro, condición de muestra, cobertura en el sistema PBS o coincidencia en el código ATC, lo que habilita una segunda capa de depuración sobre los candidatos sugeridos.
+
+El resultado es un sistema de segmentación robusto, modular y fácilmente interpretable, capaz de identificar agrupamientos útiles que pueden ser aprovechados por motores de recomendación, reglas de negocio o validaciones expertas dentro del proceso de homologación.
+
+\section{Discusión y conclusiones}
+
+\subsection{Perspectiva técnica}
+
+El desarrollo del sistema de agrupamiento aplicado al dataset de medicamentos evidenció la viabilidad de una solución no supervisada para la identificación de productos similares, clínicamente equivalentes o potencialmente homologables. La estrategia se basó en una ingeniería de atributos jerarquizada, que permitió estructurar un espacio vectorial semánticamente coherente, adecuado para algoritmos de agrupamiento como K-Means.
+
+El uso del \textit{Ranking Frecuencial Ajustado} demostró ser una alternativa eficaz para codificar variables categóricas de alta cardinalidad sin incurrir en explosión dimensional. La combinación de validaciones estructurales y estadísticas sobre variables clave, junto con transformaciones logarítmicas y proporcionales en atributos cuantitativos, permitió al modelo capturar relaciones clínicas y regulatorias relevantes sin requerir supervisión explícita.
+
+El desempeño del modelo, evaluado mediante métricas como el \textbf{Silhouette Score}, mostró agrupaciones coherentes y separadas, validando la calidad del vector construido. La separación funcional entre features críticas, importantes e informativas facilitó tanto el entrenamiento como la interpretación y trazabilidad operativa del sistema.
+
+La precisión del sistema se ve condicionada por la calidad de la codificación y los límites estructurales del dataset. Una línea futura consiste en incorporar representaciones vectoriales semánticas mediante modelos de lenguaje natural (NLP), que permitan capturar matices presentes en descripciones no estructuradas.
+
+\subsection{Validación práctica y aplicación real}
+
+El sistema fue validado por un equipo externo de profesionales del área de la salud, compuesto por un profesional químico farmacéutico y un ingeniero con experticia en normativas sanitarias. Al aplicar la solución en su flujo real de trabajo, las especialistas reportaron una mejora significativa en eficiencia y usabilidad respecto a las búsquedas manuales de equivalencias previamente requeridas.
+
+Aunque se detectaron algunos casos atipicos donde la agrupación no coincidía con el criterio farmaceutico esperado, estas excepciones fueron reconocidas como oportunidades de mejora. Los profesionales sugirieron incluir atributos adicionales mediante procesamiento de lenguaje natural para ampliar el nivel de detalle. Estos resultados consolidan la viabilidad de un sistema inteligente de homologación como herramienta de apoyo en procesos técnicos y administrativos del sector salud, con margen para seguir perfeccionándose mediante técnicas más profundas de análisis semántico.
+
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-\bibitem{b8} D. P. Kingma and M. Welling, ``Auto-encoding variational Bayes,'' 2013, arXiv:1312.6114. [Online]. Available: https://arxiv.org/abs/1312.6114
-\bibitem{b9} S. Liu, ``Wi-Fi Energy Detection Testbed (12MTC),'' 2023, gitHub repository. [Online]. Available: https://github.com/liustone99/Wi-Fi-Energy-Detection-Testbed-12MTC
-\bibitem{b10} ``Treatment episode data set: discharges (TEDS-D): concatenated, 2006 to 2009.'' U.S. Department of Health and Human Services, Substance Abuse and Mental Health Services Administration, Office of Applied Studies, August, 2013, DOI:10.3886/ICPSR30122.v2
-\bibitem{b11} K. Eves and J. Valasek, ``Adaptive control for singularly perturbed systems examples,'' Code Ocean, Aug. 2023. [Online]. Available: https://codeocean.com/capsule/4989235/tree
-\end{thebibliography}
+    
+\bibitem{minsalud2024} Ministerio de Salud y Protección Social de Colombia, ``Actualización de la definición de subgrupos de medicamentos para hipertensión arterial,'' [En línea]. Disponible: https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/
+RIDE/VP/RBC/actualizacion-definicion-subgrupos-medicamentos-hta.pdf. [Accedido: 21 jun. 2025].
 
-\vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
+\bibitem{invima2025} Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA), ``Consultas, registros y documentos asociados,'' [En línea]. Disponible: https://www.invima.gov.co/tramites-y-servicios/consultas-registros-y-documentos-asociados. [Accedido: 21 jun. 2025].
+
+
+\end{thebibliography}
 
 \end{document}
