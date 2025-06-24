@@ -176,3 +176,5 @@ cython_debug/
 # Otros
 .DS_Store
 Thumbs.db
+*.pkl
+*.pdf
